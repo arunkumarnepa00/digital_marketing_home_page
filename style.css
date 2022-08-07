@@ -1,33 +1,40 @@
+*{
+  margin:0;
+}
 .container {
   width: 100%;
   font-family: sans-serif;
 }
 
+
 /* navbar */
 .navbar-container {
-  padding-top: 20px;
+  margin-top:15px;
+  padding: 20px;
   display: flex;
   align-items: center;
-  padding-inline: 10%;
 }
 .navbar-container > div > img {
   width: 100px;
+  margin-left:50px;
 }
 .list {
   list-style-type: none;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  margin-inline:20px;
 }
 .list-item {
-  padding-inline: 20px;
+  margin-inline: 20px;
   color: grey;
 }
 .list-item:first-of-type {
   color: black;
 }
 .button-group {
-  margin-left: 25%;
+  width:40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .nav-button {
   background-color: #5c5cd6;
@@ -36,22 +43,47 @@
   border: none;
   color: #fff;
 }
-
+@media only screen and (max-width:900px) {
+  .navbar-container{
+    display: flex;
+    justify-content: space-between;
+    margin-inline:10px;
+  }
+  .navbar-container > div > img{
+    margin-left:0;
+  }
+  .list{
+    display: none;
+  }
+  .nav-button{
+    display: none;
+  }
+  .navbar-container:nth-child(1)::after{
+    content: "";
+    display: inline-block;
+    width:40px;
+    height:40px;
+    background-color: white;
+    background-image: url(./assets/hamburger-menu-more-2-svgrepo-com.svg);
+    background-size:40px 40px;
+  }
+} 
 /* banner */
 .banner-container {
   display: flex;
+  justify-content: space-between;
   width: 100%;
-  padding-block: 20px;
 }
 
+
 /* left */
-.banner-container > div:first-of-type {
-  text-align: left;
-  width: 30%;
-  margin-inline-start: 10%;
-  margin-block: 25px;
+.banner-container>div:nth-child(1){
+  width:30%;
+  margin-inline-start:80px;
+  margin-block: 25px; 
 }
 .heading-text {
+  margin-top:50px;
   font-size: 50px;
   color: #191966;
 }
@@ -61,14 +93,41 @@
 .description {
   font-size: small;
   color: grey;
-  margin-top: -25px;
+  margin-top: 25px;
   padding-bottom: 30px;
 }
 
 /* right */
-.banner-container:last-child img {
-  position: absolute;
-  right: 0;
-  height: 450px;
-  width: 55%;
+.banner-container>div:nth-child(2){
+  width:60%;
 }
+.banner-container>div:nth-child(2) img{ 
+  width:100%;
+  height:80vh;
+}
+
+@media only screen and (max-width:900px) {
+  .banner-container{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  .heading-text{
+    margin-top:50px;
+    font-size:40px;
+  }
+  .description{
+      padding-inline:40px;
+  }
+ .banner-container>div:nth-child(1){
+      width:100%;
+      text-align:center;
+      margin-inline:25px;
+  }
+  .banner-container>div:nth-child(2){
+    width:100%;
+  }
+  .banner-container>div:nth-child(2) img{
+    width:100%;
+    height:400px;
+  }
+} 
